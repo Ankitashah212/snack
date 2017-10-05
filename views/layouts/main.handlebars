@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	 crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	 crossorigin="anonymous"></script>
 	<meta charset="UTF-8">
-		<title>Animals</title>
-	</head>
-	<body>
-		{{{ body }}}
-	</body>
+	<title>Animals</title>
+</head>
+
+<body>
+	<input type="text" id="inputName"></input>
+	<button id="submit">Enter</button> {{{ body }}}
+</body>
+
+<script type="text/javascript">
+	// Capture the form inputs 
+	$("#submit").on("click", function () {
+		// Form validation
+		var userData = {
+			name: $("#inputName").val()
+
+		}
+		console.log(userData);
+
+		// Grab the URL of the website
+		var currentURL = window.location.origin;
+
+		// AJAX  
+		$.post(currentURL + "/snack/create", userData, function (data) {
+
+			window.location.reload()
+		});
+
+	});
+
+	$("#eat").on("click", function () {
+		var currentURL = window.location.origin;
+
+		// Form validation
+		var userData = {
+			name: $("#eat").val()
+
+		}
+		console.log(userData);
+		$.post(currentURL + "/snack/eat", userData, function (data) {
+
+			window.location.reload()
+		});
+
+	});
+
+</script>
+
 </html>
