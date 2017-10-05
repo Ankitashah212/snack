@@ -61,9 +61,8 @@ app.get("/", function (req, res) {
 
     // 2. Send the animals to the index.handlebars file. Remember that animals is an array and not an object.
     res.render("index", {
-        snack: snackArray
+        snack: snackArray,
     });
-
 });
 
 
@@ -79,9 +78,7 @@ app.post('/snack/create', function (req, res) {
 
 });
 
-
 app.post('/snack/eat', function (req, res) {
-
     var temp = req.body;
     console.log("eat called" + temp);
 

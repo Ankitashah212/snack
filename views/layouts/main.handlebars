@@ -8,12 +8,37 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 	 crossorigin="anonymous"></script>
 	<meta charset="UTF-8">
-	<title>Animals</title>
+	<title>Handlebars</title>
 </head>
 
 <body>
-	<input type="text" id="inputName"></input>
-	<button id="submit">Enter</button> {{{ body }}}
+	<style>
+		.inputClass {
+
+			width: 100%;
+			padding: 20px;
+			border: 1px solid #946868;
+		}
+
+		.mainTitle {
+			font-size: 20px;
+			color: #19194D;
+		}
+		body{
+			background-color: #E9ECC6
+		}
+	</style>
+	<!--div class="inputClass">
+		<img src="https://sidneeshares.files.wordpress.com/2016/03/snacks.jpg?w=615" alt="">
+	</div-->
+	<div class="inputClass">
+		<p class="mainTitle"><strong>Enter a New Snack</strong></p>
+		<input type="text" id="inputName"></input>
+		<button id="submit">Enter</button>
+	</div>
+
+	{{{ body }}}
+
 </body>
 
 <script type="text/javascript">
@@ -32,7 +57,7 @@
 		// AJAX  
 		$.post(currentURL + "/snack/create", userData, function (data) {
 
-			window.location.reload()
+			window.location.reload();
 		});
 
 	});

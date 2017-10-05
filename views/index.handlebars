@@ -1,11 +1,44 @@
 <!-- 5. Output the animalType string, pet boolean, and fierceness number to the page for all the pets. -->
-{{#each snack }} {{#if this.flag}}
-<h4>Name {{this.name}} </h4>
+
+<style>
+    .eaten {
+        width: 50%;
+        float: left;
+        padding: 20px;
+        color: #19194D;
+        font-size: 14px;
+    }
+
+    .notEaten {
+        width: 50%;
+        float: left;
+        padding: 20px;
+        color: #19194D;
+        font-size: 14px;
+    }
+
+    .head {
+        color: #19194D;
+        font-size: 18px;
+    }
+</style>
 
 
-{{else}}
-<h3>----------------------------------------</h3>
-<h4>Name {{this.name}} </h4>
-<button id="eat" value="{{this.name}}"> eat</button>
-<h3>----------------------------------------</h3>
-{{/if}} {{/each}}
+
+<div class="notEaten">
+    <strong><p class="head">Snacks Available to Eat</p>
+    <h3>----------------------------------------</h3></strong>
+    {{#each snack }} {{#unless this.flag}}
+    <h4>{{this.name}} <button id="eat" value="{{this.name}}"> eat </button> </h4>
+    <h3>----------------------------------------</h3>
+    {{/unless}} {{/each}}
+</div>
+
+<div class="eaten">
+    <strong><p class="head">Snacks Already Eaten</p>
+    <h3>----------------------------------------</h3></strong>
+    {{#each snack }} {{#if this.flag}}
+    <h4>Name {{this.name}} </h4>
+    <h3>----------------------------------------</h3>
+    {{/if}} {{/each}}
+</div>
