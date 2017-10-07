@@ -1,9 +1,10 @@
 var express = require("express");
 
+
 var router = express.Router();
 
 // Import the model (snack.js) to use its database functions.
-var snack = require("../models/snack.js");
+var snack = require("../models/snacks.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -12,11 +13,12 @@ router.get("/", function(req, res) {
       snacks: data
     };
     console.log(allSnack);
+    
     res.render("index", allSnack);
   });
 });
 
-router.post("/api/snacks", function(req, res) {
+router.post("/snack/create", function(req, res) {
   snack.create([
     "name"
   ], [
@@ -27,7 +29,7 @@ router.post("/api/snacks", function(req, res) {
   });
 });
 
-router.post("/api/snacks/:id", function(req, res) {
+router.post("/snack/eat/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
