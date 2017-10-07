@@ -36,7 +36,7 @@ module.exports = function (app) {
     app.post('/snack/create', function (req, res) {
 
         var temp = req.body;
-        console.log("post called");
+        console.log("post called"); 
         console.log(temp);
         var newSnack = new snack(temp.name);
         snackArray.push(newSnack);
@@ -52,7 +52,6 @@ module.exports = function (app) {
         for (var i = 0; i < snackArray.length; i++) {
             if (snackArray[i].name == temp.name) {
                 snackArray[i].flag = true;
-                console.log("in if condition");
             }
             console.log(snackArray[i]);
 
