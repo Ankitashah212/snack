@@ -1,3 +1,6 @@
+var connection = require("../config/connection.js");
+
+
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -45,6 +48,15 @@ var orm = {
       callback(result);
     });
   },
+  truncate: function(tableInput, callback) {
+    var queryString = "truncate" + tableInput + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  },
   //insert
   create: function(table, cols, vals, callback) {
     var queryString = "INSERT INTO " + table;
@@ -56,7 +68,7 @@ var orm = {
     queryString += "?";
     queryString += ") ";
 
-    console.log(queryString);
+   // console.log(queryString);
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
@@ -67,7 +79,7 @@ var orm = {
     });
   },
   
-  // An example of objColVals would be {name: cheetoes, eaten: true}
+  // An example of objColVals would be {id: 4, eaten: 1}
   update: function(table, objColVals, condition, callback) {
     var queryString = "UPDATE " + table;
 
@@ -76,7 +88,7 @@ var orm = {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString);
+    //console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;

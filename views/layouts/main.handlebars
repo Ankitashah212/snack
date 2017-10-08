@@ -24,7 +24,8 @@
 			font-size: 20px;
 			color: #19194D;
 		}
-		body{
+
+		body {
 			background-color: #FAF9B6;
 		}
 	</style>
@@ -35,6 +36,7 @@
 		<p class="mainTitle"><strong>Enter a New Snack</strong></p>
 		<input type="text" id="inputName"></input>
 		<button id="submit">Enter</button>
+		<button id="truncate">Restart Pantry</button>
 	</div>
 
 	{{{ body }}}
@@ -64,19 +66,21 @@
 
 	$("#eat").on("click", function () {
 		var currentURL = window.location.origin;
-
+		console.log("called" + $("#id").val());
 		// Form validation
 		var userData = {
-			name: $("#eat").val()
-
+			id: $("#id").val(),
+		
 		}
 		console.log(userData);
-		$.post(currentURL + "/snack/eat", userData, function (data) {
+		$.post(currentURL + "/snack/eat/"+ $("#id").val(), function (data) {
 
 			window.location.reload()
 		});
 
 	});
+
+
 
 </script>
 

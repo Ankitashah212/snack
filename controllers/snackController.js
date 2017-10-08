@@ -8,11 +8,12 @@ var snack = require("../models/snacks.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
+  //console.log("called");
   snack.all(function(data) {
     var allSnack = {
-      snacks: data
+      snack: data
     };
-    console.log(allSnack);
+    //console.log(allSnack);
     
     res.render("index", allSnack);
   });
@@ -32,10 +33,10 @@ router.post("/snack/create", function(req, res) {
 router.post("/snack/eat/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
+  //console.log("condition", condition);
 
   snack.update({
-    eaten: req.body.eaten
+    eaten: 1
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
@@ -46,6 +47,7 @@ router.post("/snack/eat/:id", function(req, res) {
     }
   });
 });
+
 
 // Export routes for server.js to use.
 module.exports = router;
