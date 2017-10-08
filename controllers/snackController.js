@@ -46,7 +46,20 @@ router.post("/snack/eat/:id", function(req, res) {
       res.status(200).end();
     }
   });
+
 });
+
+
+router.post("/snack/truncate", function(req, res) {
+  
+   snack.truncate(function(result) {
+     
+       res.redirect('/');
+      
+   });
+ });
+ 
+ 
 
 
 // Export routes for server.js to use.

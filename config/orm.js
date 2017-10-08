@@ -49,7 +49,7 @@ var orm = {
     });
   },
   truncate: function(tableInput, callback) {
-    var queryString = "truncate" + tableInput + ";";
+    var queryString = "truncate " + tableInput + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;

@@ -7,7 +7,11 @@ var snack = {
       cb(res);
     });
   }, 
-  
+  truncate: function(cb) {
+    orm.truncate("snacks", function(res) {
+      cb(res);
+    });
+  },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
     orm.create("snacks", cols, vals, function(res) {
