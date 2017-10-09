@@ -21,27 +21,28 @@
         color: #19194D;
         font-size: 18px;
     }
-    .hide{
+
+    .hide {
         visibility: none;
     }
 </style>
 
 
-
 <div class="notEaten">
     <strong><p class="head">Snacks Available to Eat</p>
-    <h3>----------------------------------------</h3></strong>
-    {{#each snack }} {{#unless this.eaten}}
-    <h4>Name : {{this.name}} <button id="eat" value="1"> eat </button> </h4>
-    <input id="id" class="hide" value="{{this.id}}"></input>
-    <h3>----------------------------------------</h3>
+    <h3>----------------------------------------</h3></strong> {{#each snack }} {{#unless this.eaten}}
+    <form action="/snack/eat/{{this.id}}" method="post">
+
+        <h4>Name : {{this.name}} <button id="eat" value="1" type="submit"> eat </button> </h4>
+        <input id="snackid" class="hide" value=""></input>
+        <h3>----------------------------------------</h3>
+    </form>
     {{/unless}} {{/each}}
 </div>
 
 <div class="eaten">
     <strong><p class="head">Snacks Already Eaten</p>
-    <h3>----------------------------------------</h3></strong>
-    {{#each snack }} {{#if this.eaten}}
+    <h3>----------------------------------------</h3></strong> {{#each snack }} {{#if this.eaten}}
     <h4>Name : {{this.name}} </h4>
     <h3>----------------------------------------</h3>
     {{/if}} {{/each}}

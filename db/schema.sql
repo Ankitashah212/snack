@@ -9,6 +9,5 @@ CREATE TABLE snacks
 	name varchar(255) NOT NULL,
 	quantity tinyint DEFAULT 1, 
 	eaten BOOLEAN DEFAULT false,
-	createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id)
 );
