@@ -1,6 +1,7 @@
-# snack
+# Snack 
 * node
 * express
 * handlebars
 * JSON
-* Dynamically creating UI, Ip
+* MVC
+* Dynamically creating UI.
