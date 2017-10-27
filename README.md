@@ -1,2 +1,6 @@
 # snack
-Using Node Express Handlebars to dynamically create UI
+* node
+* express
+* handlebars
+* JSON
+* Dynamically creating UI, Ip
